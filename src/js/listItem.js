@@ -28,30 +28,11 @@ export class ListItem {
     return itemElem;
   }
 
+  // eslint-disable-next-line no-unused-vars
   HTMLEdit(e) {
     const itemElem = document.createElement('tr');
     itemElem.classList.add('item');
     itemElem.setAttribute('item-id', `${list.items.indexOf(this)}`);
-    itemElem.innerHTML = `
-<td class="item__name">${this.name}</td>
-<td class="item__price">${this.price}</td>
-<td class="actions">
-  <div class="edit icon">
-    <span class="visability-hidden">Редактировать</span>
-  </div> 
-   <div class="delete icon">
-        <span class="visability-hidden">Удалить из списка</span>
-    </div>
-  </td>
- 
-`;
-    return itemElem;
-  }
-
-  HTMLforming() {
-    const itemElem = document.createElement('tr');
-    itemElem.classList.add('item');
-    itemElem.setAttribute('item-id', `${String(list.items.length)}`);
     itemElem.innerHTML = `
 <td class="item__name">${this.name}</td>
 <td class="item__price">${this.price}</td>

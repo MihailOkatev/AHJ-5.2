@@ -2,6 +2,7 @@ import { list } from './List';
 import { ListItem } from './listItem';
 import { showTooltip } from './showTooltip';
 
+// eslint-disable-next-line import/prefer-default-export
 export class ListWidget {
   constructor(parentEl) {
     this.parentEl = parentEl;
@@ -23,6 +24,7 @@ export class ListWidget {
     this.listRender(list);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   popupCancel() {
     const cancel = document.querySelector('.button_cancel');
     cancel.addEventListener('click', () => {
@@ -48,7 +50,7 @@ export class ListWidget {
         if (document.querySelector('.name').value !== '') {
           const price = document.querySelector('.price').value;
           if (String(parseInt(price, 10)) !== price) {
-            showTooltip(document.querySelector('.price'),'Значение веденное в поле цена не является числом');
+            showTooltip(document.querySelector('.price'), 'Значение веденное в поле цена не является числом');
           } else {
             const item = new ListItem(document.querySelector('.name').value, document.querySelector('.price').value);
             list.items.push(item);
@@ -57,7 +59,7 @@ export class ListWidget {
             this.listRender(list);
           }
         } else {
-          showTooltip(document.querySelector('.name'),'Вы не ввели название товара');
+          showTooltip(document.querySelector('.name'), 'Вы не ввели название товара');
         }
       });
       this.popupCancel();
@@ -89,7 +91,6 @@ export class ListWidget {
           this.listRender(list);
         });
         this.popupCancel();
-
       }
     });
   }
@@ -132,7 +133,6 @@ export class ListWidget {
     const fragment = document.createDocumentFragment();
     tasks.items.forEach((element) => {
       fragment.append(element.HTML);
-
     });
     document.querySelector('.items').innerHTML = '';
     document.querySelector('.items').append(fragment);
